@@ -1,36 +1,35 @@
-a="⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-b="⠀⠀⠀⢀⣴⣾⣦⣀⣀⣠⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-c="⠀⠀⠀⠈⢻⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-d="⠀⠀⠀⢀⣾⣿⡿⠋⠁⠈⠙⢿⣿⣷⣶⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-e="⠀⢸⣿⣿⣿⣿⡇⠀⠀⠀⠀⢸⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-f="⠀⠘⠛⠛⠻⣿⣷⣤⣀⣀⣴⣿⣿⠏⢀⣀⠀⠀⠀⠀⣾⣿⣿⡇⠀⠀⠀⠀⣀⠀"
-g="⠀⠀⠀⠀⠀⣾⣿⣿⡿⠿⢿⣿⣿⣷⣿⣿⣧⠀⣀⣀⣿⣿⣿⣇⣀⡀⠀⣼⣿⠀"
-h="⠀⠀⠀⠀⠸⠿⣿⡿⠀⠀⠀⠻⠿⠋⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀"
-i="⠀⠀⠀⠀⠀⠀⠀⠁⢀⣴⣤⣀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀"
-j="⠀⠀⠀⠀⠀⠀⠀⠀⠺⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀"
-k="⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⠿⣿⣿⣿⣿⣿⠀"
-l="⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠈⢻⣿⣿⣿⠀"
-m="⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⠀"
-n="⠀⠀⠀⠀⠀⠀⠘⠛⠛⠻⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⠀"
+a="⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+b="⠀⠀⠀⢀⣴⣾⣦⣀⣀⣠⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+c="⠀⠀⠀⠈⢻⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+d="⠀⠀⠀⢀⣾⣿⡿⠋⠁⠈⠙⢿⣿⣷⣶⣶⡆⠀⠀⠀⠀⠀⠀⠀ "
+e="⠀⢸⣿⣿⣿⣿⡇⠀⠀⠀⠀⢸⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀ "
+f="⠀⠘⠛⠛⠻⣿⣷⣤⣀⣀⣴⣿⣿⠏           "
+g="⠀⠀⠀⠀⠀⣾⣿⣿⡿⠿⢿⣿⣿⣷           "
+h="⠀⠀⠀⠀⠸⠿⣿⡿⠀⠀⠀⠻⠿⠋           "
 
-echo -e "\e[31m$a\e[0m"
-echo -e "\e[31m$b\e[0m"
-echo -e "\e[31m$c\e[0m"
-echo -e "\e[31m$d\e[0m    hardfetch"
 
 gpu=$(sudo lshw -C display | grep "product" | awk -F': ' '{print $2}')
 gpu=$(echo "$gpu" | sed -E 's/.*\[(.*)\]/\1/')
-echo "GPU: $gpu"
 
 vram_kb=$(grep -P -o -i "(?<=memory:).*(?=kbytes)" /var/log/Xorg.0.log)
 x=$((vram_kb / 1024 / 1000))
-echo "VRAM: $x Gb"
 
 mobo=$(dmidecode -t 2 | grep "Product Name" | cut -d: -f2 | sed 's/^ *//')
-echo "motherboard: $mobo"
 
 cpu=$(lscpu | sed -n 's/^Model name: *\(.*\)/\1/p')
-echo "CPU: $cpu"
 
-cores=$(lscpu | sed -n 's/^CPU(s): *\(.*\)/\1/p')
-echo "cores: $cores"
+threads=$(lscpu | sed -n 's/^CPU(s): *\(.*\)/\1/p')
+
+ram=$(echo $(($(getconf _PHYS_PAGES) * $(getconf PAGE_SIZE) / (1024 * 1024 * 1000))))
+
+
+echo -e "\e[1;31m$a\e[0m    \e[1;31mhardfetch\e[0m"
+echo -e "\e[1;31m$b\e[0m   ----------------------"
+echo -e "\e[1;31m$c\e[0m    \e[1mGPU\e[0m: $gpu"
+echo -e "\e[1;31m$d\e[0m    \e[1mVRAM\e[0m: $x Gb"
+echo -e "\e[1;31m$e\e[0m    \e[1mmotherboard\e[0m: $mobo"
+echo -e "\e[1;31m$f\e[0m    \e[1mCPU\e[0m: $cpu"
+echo -e "\e[1;31m$g\e[0m    \e[1mthreads\e[0m: $threads"
+echo -e "\e[1;31m$h\e[0m    \e[1mram\e[0m: $ram Gb"
+
+
